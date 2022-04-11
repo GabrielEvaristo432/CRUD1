@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <title>CRUD de Clientes</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="/js/id.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Lista de Clientes</h1>
+      <% if(inserido) { %>
+        <h1>Cliente adicionado com sucesso</h1>
+      <% } %>
+
+        <% if(removido) { %>
+          <h1>Cliente removido com sucesso</h1>
+          <% } %>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Telefone</th>
+                  <th>UF</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <form method="post">
+                  <% docs.forEach(doc=> { %>
+                    <tr>
+                      <td>
+                        <%= doc.nome %>
+                      </td>
+                      <td>
+                        <%= doc.telefone %>
+                      </td>
+                      <td>
+                        <%= doc.uf %>
+                      </td>
+                      <td>
+                        <button
+                          class="btn-editar"
+                          type="submit"
+                          formaction="/clientes/edit"
+                          onclick="setHiddenId ('<%= doc._id  %>')"
+                        > Editar</button>
+                        <button
+                          class="btn-excluir"
+                          type="submit"
+                          formaction="/clientes/delete"
+                          onclick="setHiddenId ('<%= doc._id  %>')"
+                          delete
+                        >Excluir</button>
+                      </td>
+                    </tr>
+                    <% }); %>
+                    <input type="hidden" id="hiddenid" name="hiddenid" >
+                </form>
+
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4"><a href="/clientes/add"><button type="button">Novo</button></a></td>
+                </tr>
+              </tfoot>
+            </table>
+  </div>
+</body>
+</html>

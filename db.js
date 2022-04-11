@@ -6,7 +6,6 @@ async function connect(){
   if(global.db){
     return global.db
   }
-
   const conn = await mongoClient.connect();
   if(!conn){
     return new Error('Não foi possível conectar')

@@ -3,37 +3,72 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CRUD de Clientes</title>
+  <title>CRUD - Produtos</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
   <!-- <script src="script.js"></script> -->
 </head>
 
 <body>
   <div class="container">
-    <h1>
-      <%= titulo %>
-    </h1>
-    <form action="/clientes" method="post">
+    <h1><%= titulo %></h1>
+
+    <form action="/produtos" method="post">
       <div class="container-row">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" value="<% if(obj) { %> <%= obj.nome %> <% } %>">
       </div>
+
       <div class="container-row">
-        <label for="telefone">Telefone:</label>
-        <input type="text" id="telefone" name="telefone" value="<% if(obj) { %> <%= obj.telefone %> <% } %>">
-      </div>
-      <div class="container-row">
-        <label for="uf">UF:</label>
-        <select id="uf" name="uf">
-          <option value="AC" <% if(obj.uf=="AC" ) {%> selected <% } %>>AC</option>
-          <option value="AM" <% if(obj.uf=="AM" ) {%> selected <% } %> >AM</option>
-          <option value="AP" <% if(obj.uf=="AP" ) {%> selected <% } %> >AP</option>
-          <option value="PA" <% if(obj.uf=="PA" ) {%> selected <% } %> >PA</option>
-          <option value="RO" <% if(obj.uf=="RO" ) {%> selected <% } %> >RO</option>
-          <option value="RR" <% if(obj.uf=="RR" ) {%> selected <% } %> >RR</option>
-          <option value="TO" <% if(obj.uf=="TO" ) {%> selected <% } %> >TO</option>
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" name="tipo">
+          <option value="Cama e banho" <% if(obj.tipo=="Cama e banho" ) {%> selected <% } %> >Cama e banho</option>
+          <option value="Cozinha" <% if(obj.tipo=="Cozinha" ) {%> selected <% } %> >Cozinha</option>
+          <option value="Ferramenta" <% if(obj.tipo=="Ferramenta" ) {%> selected <% } %> >Ferramenta</option>
+          <option value="Eletrodoméstico" <% if(obj.tipo=="Eletrodoméstico" ) {%> selected <% } %> >Eletrodoméstico</option>
+          <option value="Eletrônicos" <% if(obj.tipo=="Eletrônicos" ) {%> selected <% } %> >Eletrônicos</option>
+          <option value="Consumíveis" <% if(obj.tipo=="Eletrônicos" ) {%> selected <% } %> >Consumíveis</option>
         </select>
       </div>
+
+      <div class="container-row">
+        <label for="quantidade">Quantidade:</label>
+        <input type="text" id="quantidade" name="quantidade" value="<% if(obj) { %> <%= obj.quantidade %> <% } %>">
+      </div>
+
+      <div class="container-row">
+        <label for="unidadeDeMedida">Unidade de medida:</label>
+        <select id="unidadeDeMedida" name="unidadeDeMedida">
+          <option value="Kilograma(s)" <% if(obj.unidadeDeMedida=="Kilograma(s)" ) {%> selected <% } %>>Kilograma(s)</option>
+          <option value="Litro(s)" <% if(obj.unidadeDeMedida=="Litro(s)" ) {%> selected <% } %> >Litro(s)</option>
+          <option value="Metro(s)" <% if(obj.unidadeDeMedida=="Metro(s)" ) {%> selected <% } %> >Metro(s)</option>
+          <option value="Centímetro(s)" <% if(obj.unidadeDeMedida=="Centímetro(s)" ) {%> selected <% } %> >Centímetro(s)</option>
+          <option value="Unidade(s)" <% if(obj.unidadeDeMedida="Unidade(s)" ) {%> selected <% } %> >Unidade(s)</option>
+        </select>
+      </div>
+
+      <div class="container-row">
+        <label for="Lote">Lote:</label>
+        <input type="text" id="lotte" name="lote" value="<% if(obj) { %> <%= obj.lote %> <% } %>">
+      </div>
+
+      <div class="container-row">
+        <label for="fornecedor">Fornecedor:</label>
+        <select id="fornecedor" name="fornecedor">
+          <option value="MaisCozinha" <% if(obj.fornecedor=="MaisCozinha" ) {%> selected <% } %>>MaisCozinha</option>
+          <option value="EletroPlus" <% if(obj.fornecedor=="EletroPlus" ) {%> selected <% } %> >EletroPlus</option>
+          <option value="CraftAll" <% if(obj.fornecedor=="CraftAll" ) {%> selected <% } %> >CraftAll</option>
+          <option value="Friboi" <% if(obj.fornecedor=="Friboi" ) {%> selected <% } %> >Friboi</option>
+          <option value="Fitness Food" <% if(obj.fornecedor=="Fitness Food" ) {%> selected <% } %> >Fitness Food</option>
+          <option value="Techno Store" <% if(obj.fornecedor=="Techno Store" ) {%> selected <% } %> >Techno Store</option>
+          <option value="Water Care" <% if(obj.fornecedor=="Water Care" ) {%> selected <% } %> >Water Care</option>
+        </select>
+      </div>
+
+      <div class="container-row">
+        <label for="valor">Valor:</label>
+        <input type="text" id="valor" name="valor" value="<% if(obj) { %> <%= obj.valor %> <% } %>">
+      </div>
+
       <div class="container-row">
         <button type="submit">
           <%= lbl %>

@@ -3,28 +3,31 @@
 
 <head>
   <meta charset="utf-8">
-  <title>CRUD de Clientes</title>
+  <title>CRUD de Produtos</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="/js/id.js"></script>
 </head>
 
 <body>
   <div class="container">
-    <h1>Lista de Clientes</h1>
+    <h1>Lista de Produtos</h1>
       <% if(inserido) { %>
-        <h1>Cliente adicionado com sucesso</h1>
+        <h1>Produto adicionado com sucesso</h1>
       <% } %>
 
         <% if(removido) { %>
-          <h1>Cliente removido com sucesso</h1>
+          <h1>Produto removido com sucesso</h1>
           <% } %>
             <table>
               <thead>
                 <tr>
                   <th>Nome</th>
-                  <th>Telefone</th>
-                  <th>UF</th>
-                  <th>Ações</th>
+                  <th>Tipo</th>
+                  <th>Quantidade</th>
+                  <th>Unidade de medida</th>
+                  <th>Lote</th>
+                  <th>Fornecedor</th>
+                  <th>Valor</th>
                 </tr>
               </thead>
               <tbody>
@@ -35,22 +38,34 @@
                         <%= doc.nome %>
                       </td>
                       <td>
-                        <%= doc.telefone %>
+                        <%= doc.tipo %>
                       </td>
                       <td>
-                        <%= doc.uf %>
+                        <%= doc.quantidade %>
+                      </td>
+                      <td>
+                        <%= doc.unidadeDeMedida%>
+                      </td>
+                      <td>
+                        <%= doc.lote %>
+                      </td>
+                      <td>
+                        <%= doc.fornecedor %>
+                      </td>
+                      <td>
+                        R$ <%= doc.valor %>
                       </td>
                       <td>
                         <button
                           class="btn-editar"
                           type="submit"
-                          formaction="/clientes/edit"
+                          formaction="/produtos/edit"
                           onclick="setHiddenId ('<%= doc._id  %>')"
                         > Editar</button>
                         <button
                           class="btn-excluir"
                           type="submit"
-                          formaction="/clientes/delete"
+                          formaction="/produtos/delete"
                           onclick="setHiddenId ('<%= doc._id  %>')"
                           delete
                         >Excluir</button>
@@ -63,7 +78,7 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <td colspan="4"><a href="/clientes/add"><button type="button">Novo</button></a></td>
+                  <td colspan="4"><a href="/produtos/add"><button type="button">Novo</button></a></td>
                 </tr>
               </tfoot>
             </table>
